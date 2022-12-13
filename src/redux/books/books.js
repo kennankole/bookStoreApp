@@ -1,7 +1,23 @@
 const ADD_BOOK = 'bookstoreapp/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstoreapp/books/REMOVE_BOOK';
 
-const initialState = [];
+const initialState = [
+  {
+    title: 'JavaScript ES6',
+    author: 'Ankole',
+    id: 1,
+  },
+  {
+    title: 'React-Redux ',
+    author: 'Anko',
+    id: 2,
+  },
+  {
+    title: 'TDD in React',
+    author: 'Ankoe',
+    id: 3,
+  },
+];
 
 export const addBook = (id, title, author) => ({
   type: ADD_BOOK,
@@ -23,7 +39,7 @@ export const booksReducer = (state = initialState, action) => {
         {
           id: action.id,
           title: action.title,
-          author: action.title,
+          author: action.author,
         },
       ];
     case REMOVE_BOOK:
