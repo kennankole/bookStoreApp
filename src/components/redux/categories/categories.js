@@ -1,4 +1,4 @@
-const CHECK_STATUS = 'CHECKING STATUS';
+const CHECK_STATUS = 'bookstoreapp/categories/CHECKING_STATUS';
 const initialState = [];
 
 export const checkStatus = () => ({
