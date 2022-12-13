@@ -11,14 +11,9 @@ const AddBook = () => {
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
-    const newBookObj = {
-      id: nanoid(),
-      title,
-      author,
-    };
+    dispatch(addBook(nanoid(), title, author));
     setTitle('');
     setAuthor('');
-    dispatch(addBook(newBookObj));
   };
 
   const handleTitleChange = (event) => {
