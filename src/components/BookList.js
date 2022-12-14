@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 /* eslint-disable array-callback-return */
 import React from 'react';
 import { useSelector } from 'react-redux';
