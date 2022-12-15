@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
+// import axios from 'axios';
 import { addBook } from '../redux/books/books';
 
 const AddBook = () => {
@@ -11,6 +13,16 @@ const AddBook = () => {
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
+    // const postData = async () => {
+    //   const results = await axios.post(baseUrl, {
+    //     item_id: nanoid(),
+    //     title,
+    //     author,
+    //     category: '',
+    //   });
+    //   console.log(results);
+    // };
+    // postData();
     dispatch(addBook(nanoid(), title, author));
     setTitle('');
     setAuthor('');
