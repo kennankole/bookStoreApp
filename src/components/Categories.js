@@ -4,14 +4,12 @@ import { checkStatus } from '../redux/categories/categories';
 
 const Category = () => {
   const data = useSelector((state) => state.categories);
-  // const [display, setDisplay] = useState(null);
   const [click, setClicked] = useState(false);
 
   const dispatch = useDispatch();
 
   const handleStatusChange = () => {
     dispatch(checkStatus());
-    // setDisplay('None');
     setClicked(true);
   };
 
