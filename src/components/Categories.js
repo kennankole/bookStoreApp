@@ -4,14 +4,12 @@ import { checkStatus } from '../redux/categories/categories';
 
 const Category = () => {
   const data = useSelector((state) => state.categories);
-  // const [display, setDisplay] = useState(null);
   const [click, setClicked] = useState(false);
 
   const dispatch = useDispatch();
 
   const handleStatusChange = () => {
     dispatch(checkStatus());
-    // setDisplay('None');
     setClicked(true);
   };
 
@@ -19,7 +17,7 @@ const Category = () => {
     <div className="category-section">
       {
         !click ? <button type="button" className="primary-button" onClick={handleStatusChange}>Check status</button>
-          : <p className="categoryError">{data}</p>
+          : <h2 className="categoryError">{data}</h2>
         }
     </div>
   );

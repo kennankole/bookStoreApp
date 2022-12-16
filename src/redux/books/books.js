@@ -8,23 +8,6 @@ const GET_BOOK = 'bookstoreapp/books/GET_BOOK';
 
 const apiKey = 'kqkewfRoZMkq2lXZaEMG';
 const baseUrl = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${apiKey}/books`;
-export const addBook = createAsyncThunk(
-  (ADD_BOOK),
-  async (payload) => {
-    const postData = await axios.post(
-      baseUrl, payload,
-    );
-    return postData;
-  },
-);
-
-export const deleteBooks = createAsyncThunk(
-  (REMOVE_BOOK),
-  async (id) => {
-    const response = await axios.delete(`${baseUrl}/${id}`);
-    return response;
-  },
-);
 
 export const getBooks = createAsyncThunk(
   (GET_BOOK),
@@ -32,6 +15,24 @@ export const getBooks = createAsyncThunk(
     const response = await axios.get(baseUrl);
     const data = await response.data;
     return data;
+  },
+);
+
+export const deleteBooks = createAsyncThunk(
+  (REMOVE_BOOK),
+  async (id, thunkApi) => {
+    await axios.delete(`${baseUrl}/${id}`);
+    thunkApi.dispatch(getBooks());
+  },
+);
+
+export const addBook = createAsyncThunk(
+  (ADD_BOOK),
+  async (payload, thunkApi) => {
+    await axios.post(
+      baseUrl, payload,
+    );
+    thunkApi.dispatch(getBooks());
   },
 );
 

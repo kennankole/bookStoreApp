@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { deleteBooks } from '../redux/books/books';
 
 const apiKkey = 'kqkewfRoZMkq2lXZaEMG';
@@ -9,26 +8,27 @@ export const baseUrls = `https://us-central1-bookstore-api-e63c8.cloudfunctions.
 
 const BookItem = (props) => {
   const dispatch = useDispatch();
-
   const handleRemoveItem = (id) => {
     dispatch(deleteBooks(id));
   };
-
+  const {
+    title, author, category, id,
+  } = props;
   return (
     <li>
       <div className="book">
         <div className="book-content">
           <div className="book-info">
-            <h4 className="book-category">{props.data.category}</h4>
-            <h2 className="book-title">{props.data.title}</h2>
-            <h6 className="book-author">{props.data.author}</h6>
+            <h4 className="book-category">{category}</h4>
+            <h2 className="book-title">{title}</h2>
+            <h6 className="book-author">{author}</h6>
             <div className="action-buttons">
               <button className="button-outline" type="button">Comment</button>
               <div className="vertical-divider" />
               <button
                 className="button-outline"
                 type="button"
-                onClick={() => handleRemoveItem(props.data.item_id)}
+                onClick={() => handleRemoveItem(id)}
               >
                 Remove
               </button>
@@ -61,4 +61,19 @@ const BookItem = (props) => {
     </li>
   );
 };
+
+BookItem.defaultProps = {
+  title: 'title',
+  author: 'author',
+  category: 'category',
+  id: 'id',
+};
+
+BookItem.propTypes = {
+  author: PropTypes.string,
+  title: PropTypes.string,
+  category: PropTypes.string,
+  id: PropTypes.string,
+};
+
 export default BookItem;
