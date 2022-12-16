@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import BookItem from './BookItem';
 import { getBooks } from '../redux/books/books';
+import AddBook from './BookAdd';
 
 const BookList = () => {
   const data = useSelector((state) => state.books);
@@ -12,7 +13,7 @@ const BookList = () => {
   }, [dispatch]);
   return (
     <section>
-      <ul className="book-list">
+      <ul className="books">
         {data.books.map((item) => (
           <BookItem
             key={item.item_id}
@@ -20,6 +21,7 @@ const BookList = () => {
           />
         ))}
       </ul>
+      <AddBook />
     </section>
 
   );
