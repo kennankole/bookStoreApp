@@ -17,7 +17,7 @@ const Category = () => {
     <div className="category-section">
       {
         !click ? <button type="button" className="primary-button" onClick={handleStatusChange}>Check status</button>
-          : <p className="categoryError">{data}</p>
+          : <h2 className="categoryError">{data}</h2>
         }
     </div>
   );
