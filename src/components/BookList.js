@@ -12,7 +12,7 @@ const BookList = () => {
   }, [dispatch]);
   return (
     <section>
-      <ul>
+      <ul className="book-list">
         {data.books.map((item) => (
           <BookItem
             key={item.item_id}

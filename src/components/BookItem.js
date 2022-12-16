@@ -15,10 +15,10 @@ const BookItem = (props) => {
   };
 
   return (
-    <li>
+    <li className="book-list-elements">
       {props.data.title}
       {props.data.author}
-      <span>
+      <span className="delete-btn">
         <button
           type="submit"
           onClick={() => handleRemoveItem(props.data.item_id)}

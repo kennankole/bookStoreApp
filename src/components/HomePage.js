@@ -5,15 +5,13 @@ import Category from './Categories';
 import './App.css';
 
 const NavigationMenu = () => (
-  <section>
-    <nav>
+  <section className="navigation-menu">
+    <nav className="nav-elements">
       <Link to="book-list">Books</Link>
       |
       <Link to="add-book">Book Add</Link>
       |
       <Link to="category">Category</Link>
-    </nav>
-    <nav>
       <Routes>
         <Route path="book-list" element={<BookList />} />
         <Route path="add-book" element={<AddBook />} />
